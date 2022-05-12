@@ -1,0 +1,49 @@
+pip install django 
+django-admin startproject core .
+
+#create database tables
+CREATE DATABASE ecommerce;
+CREATE USER 'ecommerce'@'localhost' IDENTIFIED BY 'Secret_1234';
+GRANT ALL PRIVILEGES ON `ecommerce` . * TO 'ecommerce'@'localhost';
+FLUSH PRIVILEGES;
+
+
+#configure connection to mysql database
+
+DATABASES = {
+    'default': {
+        'ENGINE'  : 'django.db.backends.mysql', # <-- UPDATED line 
+        'NAME'    : 'ecommerce',                 # <-- UPDATED line 
+        'USER'    : 'ecommerce',                     # <-- UPDATED line
+        'PASSWORD': 'Secret_1234',              # <-- UPDATED line
+        'HOST'    : 'localhost',                # <-- UPDATED line
+        'PORT'    : '3306',
+    }
+}
+
+py manage.py createsuperuser
+
+#…or create a new repository on the command line
+echo "# ecommerce-docker" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/maheraudee/ecommerce-docker.git
+git push -u origin main
+
+#…or push an existing repository from the command line
+git remote add origin https://github.com/maheraudee/ecommerce-docker.git
+git branch -M main
+git push -u origin main
+
+
+
+# to pull branch 
+git pull https://github.com/maheraudee/ecommerce.git 
+# to test what branch 
+git branch      # see current branch
+git branch -r   # see remote branch
+git branch -a  # see all branchs
+
+git rm -r --cached .  # remove cached for commit

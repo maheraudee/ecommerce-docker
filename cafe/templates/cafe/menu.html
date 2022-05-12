@@ -1,0 +1,109 @@
+ {% extends 'base.html' %} {% block body %} {% load static %}
+
+        <!-- Menu Section -->
+        <section id="gtco-menu" class="section-padding">
+            <div class="container">
+                <div class="section-content">
+                    <div class="row mb-5">
+                        <div class="col-md-12">
+                            <div class="heading-section text-center">
+                                <span class="subheading">
+                            Specialties
+                        </span>
+                                <h2>
+                                    Our Menu
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 menu-wrap">
+                            <div class="heading-menu">
+                                <h3 class="text-center mb-5">Breakfast</h3>
+                            </div>
+                            {% for menu in menus %} {% if menu.code == "Breakfast" %} {% for item in menu.mitem.all %}
+
+                            <div class="menus d-flex align-items-center">
+                                <div class="menu-img rounded-circle">
+                                    <img class="img-fluid" src='{{item.image.url}}' alt="">
+                                </div>
+                                <div class="text-wrap">
+                                    <div class="row align-items-start">
+                                        <div class="col-8">
+                                            <h4>{{item}}</h4>
+                                        </div>
+                                        <div class="col-4">
+                                            <h4 class="text-muted menu-price">${{item.price}}</h4>
+                                        </div>
+                                    </div>
+                                    <p>{{item.ingredients}}</p>
+                                </div>
+                            </div>
+
+                            {% endfor %} {% endif %}{% endfor %}
+
+
+                        </div>
+
+                        <div class="col-lg-4 menu-wrap">
+                            <div class="heading-menu">
+                                <h3 class="text-center mb-5">Lunch</h3>
+                            </div>
+                            {% for menu in menus %} {% if menu.code == "Lunch" %} {% for item in menu.mitem.all %}
+
+                            <div class="menus d-flex align-items-center">
+                                <div class="menu-img rounded-circle">
+                                    <img class="img-fluid" src='{{item.image.url}}' alt="">
+                                </div>
+                                <div class="text-wrap">
+                                    <div class="row align-items-start">
+                                        <div class="col-8">
+                                            <h4>{{item}}</h4>
+                                        </div>
+                                        <div class="col-4">
+                                            <h4 class="text-muted menu-price">${{item.price}}</h4>
+                                        </div>
+                                    </div>
+                                    <p>{{item.ingredients}}</p>
+                                </div>
+                            </div>
+
+                            {% endfor %} {% endif %}{% endfor %}
+
+
+                        </div>
+                        <div class="col-lg-4 menu-wrap">
+                            <div class="heading-menu">
+                                <h3 class="text-center mb-5">Dinner</h3>
+                            </div>
+                            {% for menu in menus %} {% if menu.code == "Dinner" %} {% for item in menu.mitem.all %}
+
+                            <div class="menus d-flex align-items-center">
+                                <div class="menu-img rounded-circle">
+                                    <img class="img-fluid" src='{{item.image.url}}' alt="">
+                                </div>
+                                <div class="text-wrap">
+                                    <div class="row align-items-start">
+                                        <div class="col-8">
+                                            <h4>{{item}}</h4>
+                                        </div>
+                                        <div class="col-4">
+                                            <h4 class="text-muted menu-price">${{item.price}}</h4>
+                                        </div>
+                                    </div>
+                                    <p>{{item.ingredients}}</p>
+                                </div>
+                            </div>
+
+                            {% endfor %} {% endif %}{% endfor %}
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End of menu Section -->
+
+    {% endblock body %}
